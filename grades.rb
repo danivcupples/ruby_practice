@@ -11,7 +11,7 @@ grade = gets.chomp.to_i
 # end
 
 case grade
-when 0..59
+  when 0..59
     then puts "Summer school!"
   when 60..69
     then puts "You have a D."
