@@ -10,8 +10,8 @@ second_num = gets.chomp.to_i
 
 quotient = 0
 
-if first_num/second_num > 0
-  quotient = first_num/second_num > 0
+if first_num - second_num > 0
+  quotient = first_num/second_num
 else
   quotient = second_num/first_num
 end

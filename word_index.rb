@@ -8,4 +8,4 @@ puts "What is your favorite word in that sentence?"
 
 fav_word = gets.chomp.downcase
 
-puts sentence.index fav_word
+puts sentence.index(fav_word)
