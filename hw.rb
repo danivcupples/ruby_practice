@@ -58,12 +58,42 @@
 #
 # If the given word starts with a consonant, move only that consonant to end and then add "ay" to the end (e.g.: coffee -> offeecay, blogger -> loggerbay)
 # If the given word starts with a vowel, add "way" to the end of the word (e.g., office -> officeway)
+
+# puts "Please give me a word or a name."
 #
+# word = gets.chomp.downcase
 #
+# if word.match(/^[aeiou]/)
+#   word = word + "way"
+# else
+#   word = word[1, word.length-1] + word[0] + "ay"
+# end
+#
+# puts word
+
+####################################
+
 # 5. Create a Ruby program that finds how many prime numbers are between 1 and a number given by the user. Hint: look through the Ruby Docs on the Prime class, and note that sometimes you must import, or require, certain Ruby libraries.
-#
-#
-#
+
+puts "Please give me a number greater than 1."
+
+num = gets.chomp.to_i
+count = 2
+primes = []
+
+while count < num + 1
+  if (count % 2 != 0) && (count % 3 != 0)
+    primes.push(count)
+    count += 1
+  else
+    count += 1
+  end
+end
+
+puts "There are " + primes.length.to_s + " prime numbers between 1 & #{num}."
+
+####################################
+
 # 6. Write a Rock, Paper, Scissors game where a user can play against the computer.
 #
 # The user should enter rock, paper, or scissors (remember to account for differences in capitalization!), and the computer will choose a random value.
