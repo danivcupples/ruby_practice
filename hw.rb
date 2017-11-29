@@ -52,8 +52,21 @@
 
 # 3. Create a program that takes a name (or any word, really), and spells it out, one letter at a time (horizontally). Then have the name/word spelled out in one line (vertically), but with commas between each letter (but not after the last letter).
 
-
+# #request a name
+# puts "Please give me a word or name."
+# #store response in a variable
+# word = gets.chomp.downcase
+# #split
+# word_arr = word.split("")
 #
+# word_arr.each do |letter|
+#   puts letter + "\n"
+# end
+#
+# puts word_arr.join(", ")
+
+####################################
+
 # 4. Write a program that translates one English word into Pig Latin. Because the rules for Pig Latin can vary, I'll be specific:
 #
 # If the given word starts with a consonant, move only that consonant to end and then add "ay" to the end (e.g.: coffee -> offeecay, blogger -> loggerbay)
@@ -196,21 +209,22 @@
 
 # 9. Create a program with a hash of countries & capitals - don't worry I'll give it to you:
 #
-cos_n_caps = {"USA" => "Washington, DC", "Canada"=>"Ottawa", "United Kingdom"=>"London", "France"=>"Paris", "Germany"=>"Berlin", "Egypt"=>"Cairo", "Ghana"=>"Accra", "Kenya"=>"Nairobi", "Somalia"=>"Mogadishu", "Sudan"=>"Khartoum", "Tunisia"=>"Tunis", "Japan"=>"Tokyo", "China"=>"Beijing", "Thailand"=>"Bangkok", "India"=>"New Delhi", "Philippines"=>"Manila", "Australia"=>"Canberra", "Kyrgyzstan"=>"Bishkek"}
 #
 #Ask the user for the capital of each country, and tell them if they are Correct or Wrong. Also, keep score and give their score at the end of the quiz. Maybe have some smart-alecky comments about their score (see example below).
 
-score = 0
-
-cos_n_caps.each do |country, capital|
-  puts "What is the capital of " + country +"?"
-  answer = gets.chomp.downcase
-  if answer == capital.downcase
-    puts "Correct"
-    score += 1
-  else
-    puts "Wrong"
-  end
-end
-
-puts score
+# cos_n_caps = {"USA" => "Washington, DC", "Canada"=>"Ottawa", "United Kingdom"=>"London", "France"=>"Paris", "Germany"=>"Berlin", "Egypt"=>"Cairo", "Ghana"=>"Accra", "Kenya"=>"Nairobi", "Somalia"=>"Mogadishu", "Sudan"=>"Khartoum", "Tunisia"=>"Tunis", "Japan"=>"Tokyo", "China"=>"Beijing", "Thailand"=>"Bangkok", "India"=>"New Delhi", "Philippines"=>"Manila", "Australia"=>"Canberra", "Kyrgyzstan"=>"Bishkek"}
+#
+# score = 0
+#
+# cos_n_caps.each do |country, capital|
+#   puts "What is the capital of " + country +"?"
+#   answer = gets.chomp.downcase
+#   if answer == capital.downcase
+#     puts "Correct"
+#     score += 1
+#   else
+#     puts "Wrong"
+#   end
+# end
+#
+# puts score
