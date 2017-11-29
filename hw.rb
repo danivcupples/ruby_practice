@@ -115,15 +115,9 @@
 
 # puts "Please choose rock, paper, or scissors."
 # user_play = gets.chomp.downcase
-# comp_play = rand(1..3)
 #
-# if comp_play == 1
-#   comp_play = "rock"
-# elsif comp_play == 2
-#   comp_play = "paper"
-# else
-#   comp_play = "scissors"
-# end
+# options = ["rock", "paper", "scissors"]
+# comp_play = options[rand(0..2)]
 #
 # score = {you: 0, comp: 0}
 #
@@ -159,6 +153,8 @@
 #     else
 #       puts "Please choose rock, paper, or scissors."
 #       user_play = gets.chomp.downcase
+#
+#       comp_play = options[rand(0..2)]
 #   end
 #
 # end
