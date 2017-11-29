@@ -75,22 +75,22 @@
 
 # 5. Create a Ruby program that finds how many prime numbers are between 1 and a number given by the user. Hint: look through the Ruby Docs on the Prime class, and note that sometimes you must import, or require, certain Ruby libraries.
 
-puts "Please give me a number greater than 1."
-
-num = gets.chomp.to_i
-count = 2
-primes = []
-
-while count < num + 1
-  if (count % 2 != 0) && (count % 3 != 0)
-    primes.push(count)
-    count += 1
-  else
-    count += 1
-  end
-end
-
-puts "There are " + primes.length.to_s + " prime numbers between 1 & #{num}."
+# puts "Please give me a number greater than 1."
+#
+# num = gets.chomp.to_i
+# count = 2
+# primes = []
+#
+# while count < num + 1
+#   if (count % 2 != 0) && (count % 3 != 0)
+#     primes.push(count)
+#     count += 1
+#   else
+#     count += 1
+#   end
+# end
+#
+# puts "There are " + primes.length.to_s + " prime numbers between 1 & #{num}."
 
 ####################################
 
@@ -99,22 +99,118 @@ puts "There are " + primes.length.to_s + " prime numbers between 1 & #{num}."
 # The user should enter rock, paper, or scissors (remember to account for differences in capitalization!), and the computer will choose a random value.
 # After each turn display the score (user wins vs. computer wins).
 # Whichever player reaches five wins first is the winner!
+
+# puts "Please choose rock, paper, or scissors."
+# user_play = gets.chomp.downcase
+# comp_play = rand(1..3)
 #
+# if comp_play == 1
+#   comp_play = "rock"
+# elsif comp_play == 2
+#   comp_play = "paper"
+# else
+#   comp_play = "scissors"
+# end
 #
+# score = {you: 0, comp: 0}
+#
+# while score[:you] < 5 && score[:comp] < 5
+#
+#   if user_play == comp_play
+#     puts score
+#     puts "Tie! Go again!"
+#   elsif user_play == "rock" && comp_play == "scissors"
+#     score[:you] = score[:you] + 1
+#     puts score
+#   elsif user_play == "paper" && comp_play == "scissors"
+#     score[:comp] = score[:comp] + 1
+#     puts score
+#   elsif user_play == "rock" && comp_play == "paper"
+#     score[:comp] = score[:comp] + 1
+#     puts score
+#   elsif user_play == "paper" && comp_play == "rock"
+#     score[:you] = score[:you] + 1
+#     puts score
+#   elsif user_play == "scissors" && comp_play == "paper"
+#     score[:comp] = score[:comp] + 1
+#     puts score
+#   elsif user_play == "scissors" && comp_play == "rock"
+#     score[:you] = score[:you] + 1
+#     puts score
+#   end
+#
+#   if score[:you] == 5
+#     puts "Congrats! You win!"
+#   elsif score[:comp] == 5
+#     puts "Sorry! Computer wins!"
+#     else
+#       puts "Please choose rock, paper, or scissors."
+#       user_play = gets.chomp.downcase
+#   end
+#
+# end
+
+####################################
+
 # 7.  Fizzbuzz: Write a program that prints the numbers from 1 to 100. But for multiples of three (3) print "Fizz" instead of the number, and for the multiples of five (5) print "Buzz". For multiples of both three (3) and five (5), print "FizzBuzz".
+
+# count = 1
 #
+# 100.times do
+#   if count % 3 == 0 && count % 5 == 0
+#     puts "FizzBuzz"
+#   elsif count % 3 == 0
+#     puts "Fizz"
+#   elsif count % 5 == 0
+#     puts "Buzz"
+#   else
+#     puts count
+#   end
 #
+#   count += 1
 #
+# end
+
+####################################
+
 # 8. Create an array of test scores (anywhere from 0 to 100; sorry, no extra credit was given).
 #
 #     Now I want a couple things:
 #
 # Print out the scores in ascending order.
 # Find the average of those test scores and print it out.
+
+# test_scores = [91, 99, 84, 78, 88, 65, 59, 71, 55, 67, 93, 85]
 #
+# puts test_scores.sort
 #
+# sum = 0
+#
+# test_scores.each do |score|
+#   sum += score
+# end
+#
+# puts (sum/test_scores.length.to_f).round(2)
+
+####################################
+
 # 9. Create a program with a hash of countries & capitals - don't worry I'll give it to you:
 #
-# cos_n_caps = {"USA" => "Washington, DC", "Canada"=>"Ottawa", "United Kingdom"=>"London", "France"=>"Paris", "Germany"=>"Berlin", "Egypt"=>"Cairo", "Ghana"=>"Accra", "Kenya"=>"Nairobi", "Somalia"=>"Mogadishu", "Sudan"=>"Khartoum", "Tunisia"=>"Tunis", "Japan"=>"Tokyo", "China"=>"Beijing", "Thailand"=>"Bangkok", "India"=>"New Delhi", "Philippines"=>"Manila", "Australia"=>"Canberra", "Kyrgyzstan"=>"Bishkek"}
+cos_n_caps = {"USA" => "Washington, DC", "Canada"=>"Ottawa", "United Kingdom"=>"London", "France"=>"Paris", "Germany"=>"Berlin", "Egypt"=>"Cairo", "Ghana"=>"Accra", "Kenya"=>"Nairobi", "Somalia"=>"Mogadishu", "Sudan"=>"Khartoum", "Tunisia"=>"Tunis", "Japan"=>"Tokyo", "China"=>"Beijing", "Thailand"=>"Bangkok", "India"=>"New Delhi", "Philippines"=>"Manila", "Australia"=>"Canberra", "Kyrgyzstan"=>"Bishkek"}
 #
-#     Ask the user for the capital of each country, and tell them if they are Correct or Wrong. Also, keep score and give their score at the end of the quiz. Maybe have some smart-alecky comments about their score (see example below).
+#Ask the user for the capital of each country, and tell them if they are Correct or Wrong. Also, keep score and give their score at the end of the quiz. Maybe have some smart-alecky comments about their score (see example below).
+
+score = 0
+
+cos_n_caps.each do |country, capital|
+  puts "What is the capital of " + country +"?"
+  answer = gets.chomp.downcase
+  if answer == capital.downcase
+    puts "Correct"
+    score += 1
+  else
+    puts "Wrong"
+  end
+end
+
+puts score
