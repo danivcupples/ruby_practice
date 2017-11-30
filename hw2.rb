@@ -47,9 +47,10 @@
 
 #2. Build-a-Quiz: Build a quiz program that gets a few inputs from the user, including: title of quiz, number of questions, questions (yes or no), answers. Then let the user either build more quizzes or take a quiz. When taking a quiz, keep score!
 
+#create an empty hash
+quiz = {}
+
 def build_quiz
-  #create an empty hash
-  quiz = {}
 
   #user input for title of quiz
   puts "Please give me a title for your quiz."
@@ -93,4 +94,52 @@ def build_quiz
   end
 
   puts quiz
+end
+
+#define method to take quiz
+def take_quiz
+  score = 0
+  #loop through hash the number of times there are num_questions
+  quiz[:num_questions].times do
+    count = 1
+    #ask question
+    puts quiz[:q+"#{count.to_s}"]
+
+    #store answer
+    user_ans = gets.chomp.downcase
+
+    #if answer == comensurate answer, add a point to score
+    if user_ans == quiz[:a+"#{count.to_s}"]
+      score += 1
+      puts "You are correct! Your new score is #{score}!"
+    #else do not adjust score & provide correct answer
+    else
+      puts "I'm sorry, the correct answer is #{quiz[:a+"#{count.to_s}"]}. Your score is still #{score}."
+    end
+    #adjust count
+    count += 1
+
+  end
+  #at the end, give score
+  puts score
+end
+
+#ask the user if they would like to start a new session
+puts "Would you like to start a new session?"
+
+#store answer
+session = gets.chomp.downcase
+
+#until no
+until session == "no"
+  #Ask the user if they would like to build a quiz or take a quiz.
+  puts "Would you like to build or take a quiz?"
+  action = gets.chomp.downcase
+  #if build, call build_quiz
+    if action == "build"
+      puts build_quiz
+    #else, call take_quiz
+    else
+      puts take_quiz
+    end
 end
