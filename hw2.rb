@@ -47,99 +47,99 @@
 
 #2. Build-a-Quiz: Build a quiz program that gets a few inputs from the user, including: title of quiz, number of questions, questions (yes or no), answers. Then let the user either build more quizzes or take a quiz. When taking a quiz, keep score!
 
-#create an empty hash
-quiz = {}
+
+#define menu method
+def menu
+  puts "What would you like to do?"
+  puts "1. Build a quiz."
+  puts "2. Take a quiz."
+  puts "3. Quit program"
+
+  choice = gets.chomp.to_i
+
+  case choice
+  when 1
+    system "clear"
+    build_quiz
+  when 2
+    system "clear"
+    choose_quiz
+  when 3
+    puts "Thank you and goodbye!"
+  else
+    system "clear"
+    puts "Try again"
+  end
+end
 
 def build_quiz
-
   #user input for title of quiz
-  puts "Please give me a title for your quiz."
-    #store input from the user
-    quiz[:title] = gets.chomp.downcase
+  puts "Title your quiz."
+  title = gets.chomp
 
   #user input for number of questions
-  puts "Please give me a number of questions."
-    #store input from user
-    quiz[:num_questions] = gets.chomp.to_i
+  puts "How many questions should be in your quiz?"
+  num = gets.chomp.to_i
 
-  #create questions array
-  question_arr = []
+    questions_and_answers = {}
 
-  #create answers array
-  answer_arr = []
+    num.times do
+      puts "Enter a yes or no question."
+      q = gets.chomp
+      puts "What is the answer? [Y/N]?"
+      a = gets.chomp.downcase
+      questions_and_answers[q] = a
+    end
 
-  #number of questions times do loop
-  quiz[:num_questions].times do
-    #user input for each question
-    puts "Please provide the question."
-      #store input from user
-      question_arr.push(gets.chomp.downcase)
-      #user input for answers
-      puts "Please provide the answer."
-        #store input from user
-        answer_arr.push(gets.chomp.downcase)
+    @quizzes[title] = questions_and_answers
+    system "clear"
+    puts "Quiz built!"
 
+    menu
+end
+
+def choose_quiz
+  if @quizzes.length == 0
+    puts "No quizzes available. Please build a quiz first."
+    build_quiz
+  else
+    puts "Choose a quiz."
+    puts "--------------"
+
+    @quizzes.keys.each_with_index do |title, index|
+      puts "#{index+1}. #{title}"
+    end
+
+    choice = gets.chomp.to_i
+
+    system "clear"
+    take_quiz(@quizzes[choice-1])
   end
-
-  #assign into key: value pair in empty hash
-  question_arr.each_with_index do |question, index|
-    q_num = "q" + (index + 1).to_s
-    quiz[q_num] = question
-  end
-
-  #assign into key: value pair in empty hash
-  answer_arr.each_with_index do |question, index|
-    a_num = "a" + (index + 1).to_s
-    quiz[a_num] = question
-  end
-
-  puts quiz
 end
 
 #define method to take quiz
-def take_quiz
+def take_quiz(title)
   score = 0
-  #loop through hash the number of times there are num_questions
-  quiz[:num_questions].times do
-    count = 1
-    #ask question
-    puts quiz[:q+"#{count.to_s}"]
 
-    #store answer
+  puts title.upcase
+  puts "-----------"
+
+  @quizzes[title].each do |question, answer|
+    puts question
     user_ans = gets.chomp.downcase
 
-    #if answer == comensurate answer, add a point to score
-    if user_ans == quiz[:a+"#{count.to_s}"]
-      score += 1
-      puts "You are correct! Your new score is #{score}!"
-    #else do not adjust score & provide correct answer
+    if user_answer == "y" || user_ans == "n"
+      if user_ans == answer
+        score += 1
+      end
     else
-      puts "I'm sorry, the correct answer is #{quiz[:a+"#{count.to_s}"]}. Your score is still #{score}."
+        puts "Try again: Y or N"
+        redo
     end
-    #adjust count
-    count += 1
-
   end
-  #at the end, give score
-  puts score
+
+  puts "You got a score of #{score} out of #{@quizzes[title].length}"
+
 end
 
-#ask the user if they would like to start a new session
-puts "Would you like to start a new session?"
-
-#store answer
-session = gets.chomp.downcase
-
-#until no
-until session == "no"
-  #Ask the user if they would like to build a quiz or take a quiz.
-  puts "Would you like to build or take a quiz?"
-  action = gets.chomp.downcase
-  #if build, call build_quiz
-    if action == "build"
-      puts build_quiz
-    #else, call take_quiz
-    else
-      puts take_quiz
-    end
-end
+menu
