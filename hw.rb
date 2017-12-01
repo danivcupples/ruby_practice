@@ -36,34 +36,59 @@
 # puts "Please give me two numbers."
 #
 # response = gets.chomp
-# numbers = response.split
+# numbers = response.split(" ").sort
 #
 # numbers.each_with_index do |num, index|
 #   numbers[index] = num.to_i
 # end
 #
-# if (numbers.first % numbers.last) == 0
-#   puts "#{numbers.first}/#{numbers.last} = #{numbers.first/numbers.last}."
+# if (numbers.last % numbers.first) == 0
+#   puts "#{numbers.last}/#{numbers.first} = #{numbers.last/numbers.first}."
 # else
-#   puts "These numbers are not divisible. The remainder is #{numbers.first%numbers.last}."
+#   puts "These numbers are not divisible. The remainder is #{numbers.last%numbers.first}."
+# end
+
+# puts "Number please"
+#
+# num1 = gets.chomp.to_i
+#
+# puts "Number please"
+#
+# num2 = gets.chomp.to_i
+#
+# #check for bigger number
+#
+# if num1 < num2
+#   #check for remainder
+#   if num2 % num1 == 0
+#     #divide num2 by num1
+#     puts "The quotient is #{num2/num1}."
+#   else
+#     puts "The remainder is #{num2%num1}."
+#   end
+# else
+#   if num1 % num2 == 0
+#   #divide num1 by num2
+#     puts "The quotient is #{num1/num2}."
+#   else
+#     puts "The remainder is #{num1%num2}"
+#   end
 # end
 
 ####################################
 
 # 3. Create a program that takes a name (or any word, really), and spells it out, one letter at a time (horizontally). Then have the name/word spelled out in one line (vertically), but with commas between each letter (but not after the last letter).
 
-# #request a name
-# puts "Please give me a word or name."
-# #store response in a variable
-# word = gets.chomp.downcase
-# #split
-# word_arr = word.split("")
-#
-# word_arr.each do |letter|
-#   puts letter + "\n"
-# end
-#
-# puts word_arr.join(", ")
+#request a name
+puts "Please give me a word or name."
+#store response in a variable & split into an array
+word = gets.chomp.split("")
+#iterate over and puts on a single line
+word.each do |letter|
+  puts letter + "\n"
+end
+#rejoin
+puts word.join(",")
 
 ####################################
 

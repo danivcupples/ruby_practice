@@ -1,31 +1,35 @@
-# class Person
-#   attr_accessor :name, :age
-#
-#   def initialize (name, age)
-#     @name = name
-#     @age = age
-#   end
-# end
-#
-# all_the_people = []
-#
-# completion = ""
-#
-# puts "Enter personal data. Type 'done' when finished."
-#
-# while completion != "done"
-#   print "Name: "
-#   name = gets.chomp.downcase
-#   if name == "done"
-#     completion = "done"
-#     break
-#   end
-#   print "Age: "
-#   age = gets.chomp
-#   profile = Person.new(name, age)
-#   all_the_people.push(profile)
-#   puts "Profile saved!"
-# end
+class Person
+  attr_accessor :name, :age
+
+  def initialize (name, age)
+    @name = name
+    @age = age
+  end
+end
+
+all_the_people = []
+
+completion = ""
+
+puts "Enter personal data. Type 'done' when finished."
+
+while completion != "done"
+  print "Name: "
+  name = gets.chomp.downcase
+  if name == "done"
+    completion = "done"
+    break
+  end
+  print "Age: "
+  age = gets.chomp
+  profile = Person.new(name, age)
+  all_the_people.push(profile)
+  puts "Profile saved!"
+end
+
+all_the_people.each do |people|
+  puts people.name
+end
 #
 # puts "Personnel entry complete"
 
@@ -47,49 +51,49 @@
 #   end
 # end
 
-class Pets
-  attr_accessor :name, :age, :species
-
-  def initialize(name, age, species)
-    @name = name
-    @age = age
-    @species = species
-  end
-
-  def sound
-    case @species
-    when "dog" then puts "woof"
-    when "cat" then puts "meow"
-    end
-  end
-
-end
-
-my_pets = []
-
-completion = false
-
-puts "Tell us about your pets. Type 'done' when finished."
-
-while completion == false
-  print "Name: "
-  name = gets.chomp
-  if name == "done"
-    completion = true
-    break
-  end
-  print "Age: "
-  age = gets.chomp
-  print "Species: "
-  species = gets.chomp
-  pet = Pets.new(name, age, species)
-
-  my_pets.push(pet)
-  puts "Pet saved!"
-end
-
-puts "Thanks for telling us about your pets!"
-puts my_pets
+# class Pets
+#   attr_accessor :name, :age, :species
+#
+#   def initialize(name, age, species)
+#     @name = name
+#     @age = age
+#     @species = species
+#   end
+#
+#   def sound
+#     case @species
+#     when "dog" then puts "woof"
+#     when "cat" then puts "meow"
+#     end
+#   end
+#
+# end
+#
+# my_pets = []
+#
+# completion = false
+#
+# puts "Tell us about your pets. Type 'done' when finished."
+#
+# while completion == false
+#   print "Name: "
+#   name = gets.chomp
+#   if name == "done"
+#     completion = true
+#     break
+#   end
+#   print "Age: "
+#   age = gets.chomp
+#   print "Species: "
+#   species = gets.chomp
+#   pet = Pets.new(name, age, species)
+#
+#   my_pets.push(pet)
+#   puts "Pet saved!"
+# end
+#
+# puts "Thanks for telling us about your pets!"
+# puts my_pets
 
 # class Products
 #
