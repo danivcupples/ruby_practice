@@ -41,11 +41,14 @@ end
 #define method list
 def list_teams
   #sort teams by seed, highest to lowest
+  puts "THE RANKINGS"
+  puts "~~~~~~~~~~~~~"
   ranking = @pool.sort
   #iterates over the array and puts rank and team name
   ranking.each do |seed, name|
     puts "#{seed}: #{name}"
   end
+  puts "\n"
   menu
 end
 
@@ -53,21 +56,24 @@ end
 def matchup_teams
   ranking = @pool.sort
   matchups = []
+  puts "THE MATCHUPS"
+  puts "~~~~~~~~~~~~"
   #determine even or odd number of teams
   if ranking.length % 2 != 0
     #if odd, ignore highest seed
-    highest_seed = ranking.unshift
-    puts "#{highest_seed[0]}: #{highest_seed[1]} has a bye"
+    highest_seed = ranking.shift
+    puts "#{highest_seed[0]}: #{highest_seed[1]} have a bye"
   end
     #pair teams based on seed: highest with lowest, moving inward
   (ranking.length/2).times do |seed, name|
-    higher = ranking.unshift
+    higher = ranking.shift
     lower = ranking.pop
     matchups.push("#{higher[0]}: #{higher[1]} vs. #{lower[0]}: #{lower[1]}")
   end
   matchups.each do |pair|
     puts pair + "\n"
   end
+  puts "\n"
   menu
 end
 
