@@ -1,10 +1,41 @@
 # class Person
+#   attr_accessor :name, :age
+#
 #   def initialize (name, age)
 #     @name = name
 #     @age = age
 #   end
 # end
 #
+# all_the_people = []
+#
+# completion = ""
+#
+# puts "Enter personal data. Type 'done' when finished."
+#
+# while completion != "done"
+#   print "Name: "
+#   name = gets.chomp.downcase
+#   if name == "done"
+#     completion = "done"
+#     break
+#   end
+#   print "Age: "
+#   age = gets.chomp
+#   profile = Person.new(name, age)
+#   all_the_people.push(profile)
+#   puts "Profile saved!"
+# end
+#
+# puts "Personnel entry complete"
+
+# new_profile = Person.new("Gayle", 33)
+#
+# all_the_people.push(new_profile)
+#
+# new_profile = Person.new("Frank", 59)
+#
+# all_the_people.push(new_profile)
 # my_profile = Person.new("Aaron", 34)
 
 # class User
@@ -33,6 +64,32 @@ class Pets
   end
 
 end
+
+my_pets = []
+
+completion = false
+
+puts "Tell us about your pets. Type 'done' when finished."
+
+while completion == false
+  print "Name: "
+  name = gets.chomp
+  if name == "done"
+    completion = true
+    break
+  end
+  print "Age: "
+  age = gets.chomp
+  print "Species: "
+  species = gets.chomp
+  pet = Pets.new(name, age, species)
+
+  my_pets.push(pet)
+  puts "Pet saved!"
+end
+
+puts "Thanks for telling us about your pets!"
+puts my_pets
 
 # class Products
 #
@@ -65,3 +122,24 @@ end
 # end
 #
 # my_product = Products.new(stuff and things)
+
+class Vehicle
+  attr_accessor :make, :model, :year, :color
+
+  def initialize(make, model, year, color, quantity)
+    @make = make
+    @model = model
+    @year = year
+    @color = color
+    @quantity = quantity
+  end
+
+  def sell(car)
+    @quantity -= car
+  end
+
+  def inventory(car)
+    @quantity += car
+  end
+
+end
