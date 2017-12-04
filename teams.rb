@@ -91,23 +91,26 @@ def menu
 
   #call create
   when 1
-    system "clear"
+    clear_screen
     create_team
   #call list
   when 2
-    system "clear"
+    clear_screen
     list_teams
   #call matchups
   when 3
-    system "clear"
+    clear_screen
     matchup_teams
   #exit program
   when 4
     puts "Thank you and goodbye!"
   else
-    system "clear"
+    clear_screen
     puts "Try again"
   end
 end
 
+def clear_screen
+  Gem.win_platform? ? (system "cls") : (system "clear")
+end
 menu
